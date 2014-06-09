@@ -1,0 +1,23 @@
+inherit qt4-cmake
+
+NAME="lxqt-globalkeys"
+VERSION=0.7.0
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="LXQt keyboard shortcuts daemon"
+DESCRIPTION="LXQt is the Qt port and the upcoming version of LXDE. It is the
+product of the merge between the LXDE-Qt and the Razor-qt projects: A
+lightweight, modular, blazing-fast and user-friendly desktop environment."
+HOMEPAGE="http://lxqt.org/"
+SRC_URI="http://lxqt.org/downloads/lxqt/${VERSION}/${NAME}-${VERSION}.tar.xz"
+SRC_DIR=.
+PATCH_URI="0.7.0-cmake-install.patch"
+
+PKG_NAMES="${NAME} lib${NAME}0 lib${NAME}-devel"
+lxqt_globalkeys_CONTENTS="usr/bin/*.exe usr/share/applications/ usr/share/doc/ usr/share/lxqt/"
+liblxqt_globalkeys0_CATEGORY="Libs"
+liblxqt_globalkeys0_SUMMARY="LXQt keyboard shortcut client library"
+liblxqt_globalkeys0_CONTENTS="usr/bin/cyglxqt-globalkeys*-0.dll"
+liblxqt_globalkeys_devel_CATEGORY="Libs"
+liblxqt_globalkeys_devel_SUMMARY=${liblxqt_globalkeys0_SUMMARY}
+liblxqt_globalkeys_devel_CONTENTS="usr/include/ usr/lib/ usr/share/cmake/"
