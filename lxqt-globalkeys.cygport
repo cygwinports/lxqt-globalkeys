@@ -1,7 +1,7 @@
 inherit qt5 cmake
 
 NAME="lxqt-globalkeys"
-VERSION=0.9.0
+VERSION=0.11.0
 RELEASE=1
 CATEGORY="X11"
 SUMMARY="LXQt keyboard shortcuts daemon"
@@ -11,16 +11,18 @@ lightweight, modular, blazing-fast and user-friendly desktop environment."
 HOMEPAGE="http://lxqt.org/"
 SRC_URI="http://downloads.lxqt.org/lxqt/${VERSION}/${NAME}-${VERSION}.tar.xz"
 PATCH_URI="
-	0.8.0-cmake-install.patch
-	0.9.0-dllexport.patch
+	0.10.0-cmake-install.patch
+	0.10.0-std-c++11.patch
 "
 
 PKG_NAMES="${NAME} lib${NAME}0 lib${NAME}-devel"
-lxqt_globalkeys_CONTENTS="usr/bin/*.exe usr/share/applications/ usr/share/doc/ usr/share/lxqt/"
+lxqt_globalkeys_CONTENTS="usr/bin/*.exe usr/share/applications/ usr/share/doc/"
 liblxqt_globalkeys0_CATEGORY="Libs"
 liblxqt_globalkeys0_SUMMARY="LXQt keyboard shortcut client library"
 liblxqt_globalkeys0_CONTENTS="usr/bin/cyglxqt-globalkeys*-0.dll"
 liblxqt_globalkeys_devel_CATEGORY="Libs"
 liblxqt_globalkeys_devel_SUMMARY=${liblxqt_globalkeys_0_SUMMARY}
 liblxqt_globalkeys_devel_OBSOLETES="liblxqt-globalkeys-qt5-devel"
-liblxqt_globalkeys_devel_CONTENTS="usr/include/ usr/lib/"
+liblxqt_globalkeys_devel_CONTENTS="usr/include/ usr/lib/ usr/share/cmake/${NAME}*/"
+
+CYGCMAKE_ARGS="-DPULL_TRANSLATIONS=OFF"

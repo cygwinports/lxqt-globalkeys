@@ -1,0 +1,10 @@
+--- origsrc/lxqt-globalkeys-0.10.0/daemon/main.cpp	2015-10-30 19:10:45.000000000 -0500
++++ src/lxqt-globalkeys-0.10.0/daemon/main.cpp	2016-07-31 21:25:24.647041600 -0500
+@@ -25,6 +25,7 @@
+  *
+  * END_COMMON_COPYRIGHT_HEADER */
+ 
++#define _BSD_SOURCE
+ #include <LXQt/Application>
+ 
+ #include <QString>

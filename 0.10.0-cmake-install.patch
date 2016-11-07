@@ -1,0 +1,28 @@
+--- origsrc/lxqt-globalkeys-0.10.0/client/CMakeLists.txt	2015-10-30 19:10:45.000000000 -0500
++++ src/lxqt-globalkeys-0.10.0/client/CMakeLists.txt	2016-07-31 21:21:48.625991000 -0500
+@@ -204,8 +204,10 @@ configure_file(
+ 
+ install(TARGETS
+     ${PROJECT_NAME}
+-    DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+     EXPORT ${PROJECT_NAME}-targets
++    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
++    RUNTIME DESTINATION "bin"
++    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+     COMPONENT Runtime
+ )
+ 
+--- origsrc/lxqt-globalkeys-0.10.0/ui/CMakeLists.txt	2015-10-30 19:10:45.000000000 -0500
++++ src/lxqt-globalkeys-0.10.0/ui/CMakeLists.txt	2016-07-31 21:23:15.952370700 -0500
+@@ -177,8 +177,10 @@ endforeach()
+ 
+ install(TARGETS
+     ${PROJECT_NAME}
+-    DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+     EXPORT ${PROJECT_NAME}-targets
++    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
++    RUNTIME DESTINATION "bin"
++    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+     COMPONENT Runtime
+ )
+ 
