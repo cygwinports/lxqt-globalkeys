@@ -1,7 +1,7 @@
 inherit qt5 cmake
 
 NAME="lxqt-globalkeys"
-VERSION=0.11.0
+VERSION=0.12.0
 RELEASE=1
 CATEGORY="X11"
 SUMMARY="LXQt keyboard shortcuts daemon"
@@ -9,14 +9,20 @@ DESCRIPTION="LXQt is the Qt port and the upcoming version of LXDE. It is the
 product of the merge between the LXDE-Qt and the Razor-qt projects: A
 lightweight, modular, blazing-fast and user-friendly desktop environment."
 HOMEPAGE="http://lxqt.org/"
-SRC_URI="http://downloads.lxqt.org/lxqt/${VERSION}/${NAME}-${VERSION}.tar.xz"
+SRC_URI="http://downloads.lxqt.org/downloads/${NAME}/${VERSION}/${NAME}-${VERSION}.tar.xz"
 PATCH_URI="
 	0.10.0-cmake-install.patch
 	0.10.0-std-c++11.patch
 "
 
 PKG_NAMES="${NAME} lib${NAME}0 lib${NAME}-devel"
-lxqt_globalkeys_CONTENTS="usr/bin/*.exe usr/share/applications/ usr/share/doc/"
+lxqt_globalkeys_CONTENTS="
+	etc/xdg/autostart/lxqt-globalkeyshortcuts.desktop
+	etc/xdg/lxqt/globalkeyshortcuts.conf
+	usr/bin/*.exe
+	usr/share/applications/
+	usr/share/doc/
+"
 liblxqt_globalkeys0_CATEGORY="Libs"
 liblxqt_globalkeys0_SUMMARY="LXQt keyboard shortcut client library"
 liblxqt_globalkeys0_CONTENTS="usr/bin/cyglxqt-globalkeys*-0.dll"
